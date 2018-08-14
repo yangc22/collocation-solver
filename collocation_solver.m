@@ -27,8 +27,10 @@ flag = 0;
 flag_coefficients = m;
 
 time_residual = 0;
+time_construct = 0;
 time_BABD = 0;
 number_of_times_residual = 0;
+number_of_times_construct = 0;
 number_of_times_BABD = 0;
 
 % file to print the run-time information
@@ -64,9 +66,15 @@ for alphacal = 1 : MAX_ITER
             flag = 1;
             break
         end
+        
+        t_construct = tic;
         % Generation of the Jacobian Matrix
         sol = DF_construct(sol, alpha);
 %         DF = get_real_jacobian(sol);
+        time_construct_it = toc(t_construct);
+        time_construct = time_construct + time_construct_it;
+        number_of_times_construct = number_of_times_construct + 1;
+
         t_BABD = tic;
         %% QR decomposition
         sol = sequential_qr(sol);
@@ -199,6 +207,10 @@ fileID_time = fopen(filename_time, 'w');
 fprintf(fileID_time,'%12.8f\n',time_all);
 fclose(fileID_time);
 
+filename_time_construct = [output_File, '_time_construct.txt'];
+fileID_time_construct = fopen(filename_time_construct, 'w');
+fprintf(fileID_time_construct,'%12.8f\n',time_construct);
+fclose(fileID_time_construct);
 filename_time_residual = [output_File, '_time_residual.txt'];
 fileID_time_residual = fopen(filename_time_residual, 'w');
 fprintf(fileID_time_residual,'%12.8f\n',time_residual);
@@ -208,6 +220,10 @@ fileID_time_BABD = fopen(filename_time_BABD, 'w');
 fprintf(fileID_time_BABD,'%12.8f\n',time_BABD);
 fclose(fileID_time_BABD);
 
+filename_times_construct = [output_File, '_times_construct.txt'];
+fileID_times_construct = fopen(filename_times_construct, 'w');
+fprintf(fileID_times_construct,'%d\n',number_of_times_construct);
+fclose(fileID_times_construct);
 filename_times_residual = [output_File, '_times_residual.txt'];
 fileID_times_residual = fopen(filename_times_residual, 'w');
 fprintf(fileID_times_residual,'%d\n',number_of_times_residual);
@@ -216,7 +232,6 @@ filename_times_BABD = [output_File, '_times_BABD.txt'];
 fileID_times_BABD = fopen(filename_times_BABD, 'w');
 fprintf(fileID_times_BABD,'%d\n',number_of_times_BABD);
 fclose(fileID_times_BABD);
-
 
 %% Plot the results
 for i = 1 : nx
