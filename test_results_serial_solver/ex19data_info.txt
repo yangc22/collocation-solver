@@ -1,0 +1,17 @@
+Smoothed Fischer-Burmeister noninterior
+method: LOBATTO, stages: 10
+alpha = 1; nodes = 101
+alpha = 8.000000e-01; nodes = 101
+alpha = 6.400000e-01; nodes = 101
+alpha = 5.120000e-01; nodes = 101
+alpha = 4.096000e-01; nodes = 101
+alpha = 3.276800e-01; nodes = 101
+alpha = 2.621440e-01; nodes = 101
+alpha = 2.097152e-01; nodes = 101
+alpha = 1.677722e-01; nodes = 101
+alpha = 1.342177e-01; nodes = 101
+alpha = 1.073742e-01; nodes = 101
+alpha = 8.589935e-02; nodes = 101
+alpha = 6.871948e-02; nodes = 101
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 5.497558e-02

@@ -1,0 +1,4 @@
+Smoothed Fischer-Burmeister noninterior
+method: LOBATTO, stages: 10
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 1

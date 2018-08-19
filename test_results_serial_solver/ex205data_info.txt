@@ -1,0 +1,6 @@
+Smoothed Fischer-Burmeister noninterior
+method: LOBATTO, stages: 10
+Wrong Direction! Need to remesh!, Number of nodes = 398
+Wrong Direction! Need to remesh!, Number of nodes = 1577
+Number of nodes is too many or too few! Nodes = 1577
+The solution does not converge, Stop!, alpha = 1

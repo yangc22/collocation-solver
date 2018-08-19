@@ -1,0 +1,6 @@
+Smoothed Fischer-Burmeister noninterior
+method: LOBATTO, stages: 10
+The solution does not converge at the alpha line-search, Remesh!, alpha = 1; Nodes = 501
+Remeshed!, Number of nodes = 1998
+Number of nodes is too many or too few! Nodes = 1998
+The solution does not converge, Stop!, alpha = 1

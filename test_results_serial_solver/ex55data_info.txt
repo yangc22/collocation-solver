@@ -1,0 +1,30 @@
+Smoothed Fischer-Burmeister noninterior
+method: LOBATTO, stages: 10
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Wrong Direction! Need to remesh!, Number of nodes = 101
+Failed to find the right solutino after too many meshes!
+The solution does not converge, Stop!, alpha = 1
