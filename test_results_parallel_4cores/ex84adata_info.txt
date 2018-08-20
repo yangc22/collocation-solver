@@ -1,0 +1,4 @@
+Smoothed Fischer-Burmeister noninterior
+method: LOBATTO, stages: 10
+alpha = 1; nodes = 101
+Get the final solution. alpha = 1
