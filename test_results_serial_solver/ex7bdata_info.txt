@@ -1,4 +1,3 @@
-Smoothed Fischer-Burmeister noninterior
-method: LOBATTO, stages: 10
-alpha = 1; nodes = 79
-Get the final solution. alpha = 1
+version https://git-lfs.github.com/spec/v1
+oid sha256:e2c03f0684c63b6578ef05f45c9e4102316a5b1fc65a4f6fc1ee8249d737fb9b
+size 124
