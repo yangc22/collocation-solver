@@ -1,2 +1,1 @@
-*.csv filter=lfs diff=lfs merge=lfs -text
 test_results_parallel_4cores/ex84ddata_yDot.txt filter=lfs diff=lfs merge=lfs -text
