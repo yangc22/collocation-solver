@@ -1,0 +1,72 @@
+Test Results with Collocation:
+ex10ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 8.736348e+01
+ex15aocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.831507e+03
+ex19ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.612983e+02
+ex27ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.220775e+00
+ex29ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 4.662006e+01
+ex30ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 2.959544e+03
+ex41ocp
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.634878e+03
+ex44ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.945231e+02
+ex45ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 5.701536e+01
+ex46ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 5.825563e+01
+ex55ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.957940e+01
+ex70ocp
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 1.784060e-05
+Total running time = 7.279909e+03
+ex73ocp
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 1.141798e-05
+Total running time = 5.936968e+03
+ex84bocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.489560e+04
+ex84cocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 7.785105e+02
+ex84docp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 8.347727e+02
+ex86ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.138426e+02
+ex87cocp
+The solution does not converge, Stop!, alpha = 4.398047e-02
+Total running time = 1.950257e+03
+ex108cocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.004461e+02
+ex110cocp
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.139464e+03
+ex205ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 6.022207e+00
+ex207ocp
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.568490e+03
