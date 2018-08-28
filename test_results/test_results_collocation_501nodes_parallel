@@ -1,0 +1,384 @@
+Test Results with Collocation:
+ex1ocp
+Get the final solution. alpha = 1
+Total running time = 1.841218e+01
+ex2ocp
+Get the final solution. alpha = 1
+Total running time = 1.445246e+00
+ex2svicocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.257233e+02
+ex3ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.595969e+00
+ex4ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.489375e+02
+ex5ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.259017e+02
+ex5slackocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.761343e+00
+ex6ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 3.444691e+02
+ex7aocp
+Get the final solution. alpha = 1
+Total running time = 4.207437e+00
+ex7bocp
+Get the final solution. alpha = 1
+Total running time = 3.324764e+00
+ex8ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.401109e+02
+ex9ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 3.235734e+02
+ex9aocp
+Get the final solution. alpha = 1
+Total running time = 1.447637e+00
+ex10ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 5.907312e+01
+ex11ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 8.351208e+02
+ex12ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.057674e+02
+ex13aocp
+Get the final solution. alpha = 1
+Total running time = 1.527788e+01
+ex13bocp
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 1
+Total running time = 2.858806e+03
+ex14ocp
+Get the final solution. alpha = 1
+Total running time = 7.672787e+00
+ex15aocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 8.786614e+02
+ex16ocp
+Get the final solution. alpha = 1
+Total running time = 7.833296e+00
+ex17ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 1.005513e+03
+ex18ocp
+Get the final solution. alpha = 1
+Total running time = 1.175321e+01
+ex19ocp
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 5.497558e-02
+Total running time = 8.346343e+03
+ex20ocp
+Get the final solution. alpha = 1
+Total running time = 2.016947e+01
+ex21ocp
+Get the final solution. alpha = 1
+Total running time = 1.934704e+01
+ex22ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 5.880050e+02
+ex23ocp
+Get the final solution. alpha = 1
+Total running time = 1.150037e+01
+ex24ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 7.541009e+02
+ex25ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 7.668574e+02
+ex26ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 9.866619e+02
+ex27ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 2.521906e+00
+ex28ocp
+Get the final solution. alpha = 1
+Total running time = 3.263301e+02
+ex29ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.357171e+02
+ex30ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 4.884242e+03
+ex31ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 7.235866e+02
+ex32ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.718498e+02
+ex33ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.881524e+00
+ex34ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.711358e+02
+ex35ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 4.038473e+02
+ex36ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.281699e+02
+ex37ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.377607e+02
+ex38ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 1.787587e+03
+ex39ocp
+Get the final solution. alpha = 1
+Total running time = 4.924591e+00
+ex40ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 3.951097e+02
+ex41ocp
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 1
+Total running time = 4.388488e+03
+ex42ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.397463e+03
+ex43ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 5.776072e+03
+ex44ocp
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 1
+Total running time = 2.095974e+03
+ex45ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 7.572237e+01
+ex46ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 6.008417e+01
+ex54ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.485092e+02
+ex55aocp
+Get the final solution. alpha = 1
+Total running time = 2.646993e+01
+ex55bocp
+Get the final solution. alpha = 1
+Total running time = 1.041931e+01
+ex55ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 6.105345e+01
+ex70aocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 1.477812e+03
+ex70ocp
+The solution does not converge, Stop!, alpha = 5.497558e-02
+Total running time = 3.585388e+03
+ex71ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.971774e+02
+ex72ocp
+Get the final solution. alpha = 1
+Total running time = 2.505341e+00
+ex73ocp
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 1.141798e-05
+Total running time = 1.529726e+04
+ex78ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.169295e+02
+ex83ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 1.834310e+03
+ex84aocp
+Get the final solution. alpha = 1
+Total running time = 3.880119e+02
+ex84bocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.204604e+04
+ex84cocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 8.027818e+02
+ex84docp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 7.500311e+02
+ex85ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.713434e+02
+ex86ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.018336e+02
+ex87ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 4.813117e+02
+ex87aocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 6.616147e+02
+ex87bocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 6.645094e+02
+ex87cocp
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 2.814750e-02
+Total running time = 5.335951e+03
+ex99tau5ocp
+Get the final solution. alpha = 1
+Total running time = 9.869164e+00
+ex100ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 2.351138e+00
+ex102ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.888345e+02
+ex103ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 3.076743e+02
+ex104ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 4.851931e+02
+ex105ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 3.127224e+02
+ex106ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.385689e+00
+ex107ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.750657e+02
+ex108cocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 7.638158e+01
+ex110ocp
+Get the final solution. alpha = 1
+Total running time = 1.043287e+01
+ex110cocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.376707e+03
+ex111aocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 3.071127e+02
+ex111ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 3.965783e+02
+ex112ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 3.665777e+02
+ex113aocp
+Get the final solution. alpha = 1
+Total running time = 5.957155e+00
+ex113ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 6.358257e+02
+ex114ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 4.248860e+03
+ex115ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.802763e+02
+ex116ocp
+Get the final solution. alpha = 1
+Total running time = 4.347832e+00
+ex117ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 5.243616e+02
+ex118ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.635207e+02
+ex119ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.183595e+02
+ex201ocp
+Get the final solution. alpha = 1
+Total running time = 4.430927e+00
+ex202ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.200862e+04
+ex203ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.119074e+03
+ex203unconocp
+Get the final solution. alpha = 1
+Total running time = 1.059539e+01
+ex204ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.135990e+03
+ex205ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 5.397383e+00
+ex206aocp
+Get the final solution. alpha = 1
+Total running time = 7.673633e+00
+ex206ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 4.245370e+02
+ex207aocp
+Get the final solution. alpha = 1
+Total running time = 2.071541e+01
+ex207ocp
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 2.596148e-04
+Total running time = 2.396460e+04
+ex208a0ocp
+Get the final solution. alpha = 1
+Total running time = 1.214363e+01
+ex208aocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 3.827263e+02
+ex208bocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 4.485488e+02
+ex208cocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 5.561622e+02
+ex208ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 5.535895e+02
+ex209ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 3.453673e+02
+ex210ocp
+Solution is not converging.
+The solution does not converge, Stop!, alpha = 1
+Total running time = 2.311192e+03
+ex211ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 1.196364e+03
+ex212aocp
+Get the final solution. alpha = 1
+Total running time = 1.024527e+02
+ex212ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.242284e+03
+ex213ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 7.281715e+02
+ex214ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 1.873921e+02
+ex215ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 3.915685e+02
+ex216ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.056866e+02
+ex217ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 2.878964e+02
+ex218ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 4.010241e+02
+ex219ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 4.688563e+02
+ex220ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.739729e+02
+exme550p2ocp
+Get the final solution. alpha = 9.807971e-07
+Total running time = 3.709949e+02
+exnc1ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 1.654120e+00
+exnc2ocp
+The solution does not converge, Stop!, alpha = 1
+Total running time = 6.230126e+00
