@@ -96,8 +96,11 @@ for alphacal = 1 : MAX_ITER
         
         %% Find an alpha linesearch
         if (isnan(norm(delta_q)))
-            residual = compute_segment_residual(sol, alpha);
-            [t_span, q0] = mesh_refinement(t_span, q0, residual);
+            [residual, ~] = compute_segment_residual1(t_span, q0, alpha);
+            [y0, ~, z0, ~] = recover_solution(t_span, q0);
+            [t_span, y0, z0] = remesh(t_span, y0, z0, residual);
+            sol = form_initial_input(t_span, y0, z0, p, alpha);
+            [t_span, q0] = struct_to_vec(sol);
             mesh_time = mesh_time + 1;
             disp(['Wrong Direction! Remesh!, Number of nodes = ', num2str(N)]);
             fprintf(fileID_info, '%s%d\n', 'Wrong Direction! Need to remesh!, Number of nodes = ', N);
@@ -145,18 +148,32 @@ for alphacal = 1 : MAX_ITER
         fprintf(test_id, '%s%d\n', 'The solution does not converge, Stop!, alpha = ', alpha);
         break
     end
-    if alpha <= alpham
-        disp('Get the final solution');
-        fprintf(fileID_info, '%s%d\n', 'Get the final solution. alpha = ', alpha);
-        fprintf(test_id, '%s%d\n', 'Get the final solution. alpha = ', alpha);
-        break
-    end
-    alpha = beta*alpha;
-    if alpha < 1e-6
-        tol = 0.9*alpha;
+    [residual, max_residual] = compute_segment_residual1(t_span, q0, alpha);
+    fprintf(1, '%s%d%s%d%s\n', 'Residual = ', max_residual, '. Number of Nodes = ', N, '.');
+    fprintf(fileID_info, '%s%d%s%d%s\n', 'Residual = ', max_residual, '. Number of Nodes = ', N, '.');
+    if max_residual > 1
+        [y0, ~, z0, ~] = recover_solution(t_span, q0);
+        [t_span, y0, z0] = remesh(t_span, y0, z0, residual);
+        sol = form_initial_input(t_span, y0, z0, p, alpha);
+        [t_span, q0] = struct_to_vec(sol);
+        [residual, max_residual] = compute_segment_residual1(t_span, q0, alpha);
+        fprintf(1, '%s%d%s%d%s\n', 'Residual = ', max_residual, '. Number of Nodes = ', N, '.');
+        fprintf(fileID_info, '%s%d%s%d%s\n', 'Residual = ', max_residual, '. Number of Nodes = ', N, '.');
+    else
+        if alpha <= alpham
+            disp('Get the final solution');
+            fprintf(fileID_info, '%s%d\n', 'Get the final solution. alpha = ', alpha);
+            fprintf(test_id, '%s%d\n', 'Get the final solution. alpha = ', alpha);
+            break
+        end
+        alpha = beta*alpha;
+        if alpha < 1e-6
+            tol = 0.9*alpha;
+        end
     end
 end
 time_all = toc(t_all);
+fprintf(test_id, '%s%d\n', 'Total running time = ', time_all);
 fclose(fileID_info);
 %% Save Final Result
 [sol_y, sol_yDot, sol_z, sol_p] = recover_solution(t_span, q0);
@@ -1104,7 +1121,7 @@ c = rk.c;
 
 sol(N).t_span = t_span;
 
-for i = 1 : N - 1
+parfor i = 1 : N - 1
     sol(i).y = (y0(i, 1 : ny))';
     if nz > 0
         sol(i).z = (z0(i, 1 : nz))';
@@ -1456,6 +1473,80 @@ end
 fprintf(1, "res: |h|: %e, |g|: %e, |r|: %e\n", max_rho_h, max_rho_g, max_rho_r);
 end
 
+%% compute segement residual
+function [residual, max_residual] = compute_segment_residual1(t_span, q0, alpha)
+
+global ny nz np N m rk tol
+
+    function ydot = get_ydot(j, t)
+        % ydot = sum_{k=1,m} L_k(t) * ydot_jk
+        ydot = zeros(ny, 1);
+        for k = 1 : m
+            ydot = ydot + rk.L{k}(t) * sol(j).y_Dot(1 : ny, k);
+        end
+    end
+    function z = get_z(j, t)
+        % z = sum_{k=1,m} L_k(t) * z_jk
+        z = zeros(nz, 1);
+        for k = 1 : m
+            z = z + rk.L{k}(t) * sol(j).z_Tilda(1 : nz, k);
+        end
+    end
+    function y = get_y(j, t)
+        % y = sy + delta*sum_{k=1,m} I_k(t) * ydot_jk
+        y = sol(j).y;
+        delta_t = sol(j).delta_t;
+        for k = 1 : m
+            y = y + delta_t * rk.I{k}(t) * sol(j).y_Dot(1 : ny, k);
+        end
+    end
+
+sol = vec_to_struc(t_span, q0);
+if np > 0
+    p = sol(N).p;
+end
+
+residual = zeros(N, 1);
+max_rho_h = 0;
+max_rho_g = 0;
+max_rho_r = 0;
+[tau, w] = gauss_coeff(m + 1);
+for j = 1 : N - 1
+    delta = sol(j).delta_t;
+    rho_h = 0;
+    rho_g = 0;
+    for i = 1 : m + 1
+        t = tau(i);
+        ydot = get_ydot(j, t); 
+        y = get_y(j, t);
+        if nz > 0
+            z = get_z(j, t);
+        end
+        h_res = ODE_h(y, z, p, alpha);
+        % h(y,z,p) - ydot
+        h_res = h_res - ydot;
+        rho_h = rho_h + dot(h_res, h_res) * w(i);
+        if nz > 0
+            g_res = DAE_g(y, z, p, alpha);
+            rho_g = rho_g + dot(g_res, g_res) * w(i);
+        end
+    end
+    
+    residual(j) = sqrt(delta * (rho_h + rho_g)) / tol;
+    
+    max_rho_h = max(max_rho_h, sqrt(delta * rho_h));
+    max_rho_g = max(max_rho_g, sqrt(delta * rho_g));
+end
+
+if (ny+np) > 0
+    r = boundary_constraint(sol(1).y(1 : ny), sol(N).y(1 : ny), p);
+    max_rho_r = norm(r);
+    residual(N) = max_rho_r / tol;
+end
+max_residual = norm(residual, Inf);
+fprintf(1, "res: |h|: %e, |g|: %e, |r|: %e\n", max_rho_h, max_rho_g, max_rho_r);
+end
+
 %% Get the gauss coeffieients
 function [t, w] = gauss_coeff(n)
 
@@ -1560,6 +1651,110 @@ function [t, w] = gauss_coeff(n)
         t = [(-x5+1)*0.5, (-x4+1)*0.5, (-x3+1)*0.5, (-x2+1)*0.5, (-x1+1)*0.5, 0.5, (x1+1)*0.5, (x2+1)*0.5, (x3+1)*0.5, (x4+1)*0.5, (x5+1)*0.5];
         w = [w5*0.5, w4*0.5, w3*0.5, w2*0.5, w1*0.5,  w0*0.5, w1*0.5, w2*0.5, w3*0.5, w4*0.5, w5*0.5];
     end
+end
+
+%% Remesh the problem
+function [tspan, y0, z0] = remesh(tspan, y0, z0, residual)
+global ny nz N m
+
+%% Deleting Nodes
+i = 1;
+k_D = 0; % Record the number of the deleted nodes
+
+while i < N - 4
+    res_i = residual(i);
+    if res_i <= 1e-3
+        lte_iplus2 = residual(i + 1);
+        lte_iplus3 = residual(i + 2);
+        lte_iplus4 = residual(i + 3);
+        lte_iplus5 = residual(i + 4);
+        if ((lte_iplus2 <= 1e-3) && (lte_iplus3 <= 1e-3) && (lte_iplus4 <= 1e-3) && (lte_iplus5 <= 1e-3))
+            tspan(i + 1) = [];
+            residual(i + 1) = [];
+            y0(i + 1, :) = [];
+            z0(i + 1, :) = [];
+            tspan(i + 2) = [];
+            residual(i+2) = [];
+            y0(i + 2, :) = [];
+            z0(i + 2, :) = [];
+            N = N - 2;
+            k_D = k_D + 2;
+            i = i + 2;
+        end
+    end
+    i = i + 1;
+end
+
+%% Adding Nodes
+
+i = 1;
+k_A = 0; % Record the number of the added nodes
+
+while i <= N - 1
+    res_i = residual(i);
+    if res_i > 1
+        if res_i > 100
+            delta_t = (tspan(i + 1) - tspan(i)) / 4;
+            t_i = tspan(i);
+            t_iplus1 = t_i + delta_t;
+            t_iplus2 = t_i + 2 * delta_t;
+            t_iplus3 = t_i + 3 * delta_t;
+            tspan = [tspan(1 : i); t_iplus1; t_iplus2; t_iplus3; tspan(i+1 : end)];
+            if i == N - 1
+                delta_res = residual(i) / 4;
+            else
+                delta_res = (residual(i + 1) - residual(i)) / 4;
+            end
+            res_iplus1 = res_i + delta_res;
+            res_iplus2 = res_i + 2 * delta_res;
+            res_iplus3 = res_i + 3 * delta_res;
+            residual = [residual(1 : i); res_iplus1; res_iplus2; res_iplus3; residual(i+1:end)];
+            y0_i = y0(i, :);
+            y0_iNext = y0(i + 1, :);
+            delta_y0 = (y0_iNext - y0_i) / 4;
+            y0_iplus1 = y0_i + delta_y0;
+            y0_iplus2 = y0_i + 2 * delta_y0;
+            y0_iplus3 = y0_i + 3 * delta_y0;
+            y0 = [y0(1 : i, :);  y0_iplus1; y0_iplus2; y0_iplus3; y0(i + 1 : end, :)];
+            z0_i = z0(i, :);
+            z0_iNext = z0(i + 1, :);
+            delta_z0 = (z0_iNext - z0_i) / 4;
+            z0_iplus1 = z0_i + delta_z0;
+            z0_iplus2 = z0_i + 2 * delta_z0;
+            z0_iplus3 = z0_i + 3 * delta_z0;
+            z0 = [z0(1 : i, :);  z0_iplus1; z0_iplus2; z0_iplus3; z0(i + 1 : end, :)];
+            N = N + 3;
+            k_A = k_A + 3;
+            i = i + 3;
+        else
+            delta_t = (tspan(i + 1) - tspan(i)) / 2;
+            t_i = tspan(i);
+            t_iplus1 = t_i + delta_t;
+            tspan = [tspan(1 : i); t_iplus1; tspan(i+1 : end)];
+            if i == N - 1
+                delta_res = residual(i) / 2;
+            else
+                delta_res = (residual(i + 1) - residual(i)) / 2;
+            end
+            res_iplus1 = res_i + delta_res;
+            residual = [residual(1 : i); res_iplus1; residual(i+1:end)];
+            y0_i = y0(i, :);
+            y0_iNext = y0(i + 1, :);
+            delta_y0 = (y0_iNext - y0_i) / 2;
+            y0_iplus1 = y0_i + delta_y0;
+            y0 = [y0(1 : i, :);  y0_iplus1; y0(i + 1 : end, :)];
+            z0_i = z0(i, :);
+            z0_iNext = z0(i + 1, :);
+            delta_z0 = (z0_iNext - z0_i) / 2;
+            z0_iplus1 = z0_i + delta_z0;
+            z0 = [z0(1 : i, :);  z0_iplus1; z0(i + 1 : end, :)];
+            N = N + 1;
+            k_A = k_A + 1;
+            i = i + 1;
+        end
+    end
+    i = i + 1;
+end
 end
 
 %% Mesh refinement of the system
